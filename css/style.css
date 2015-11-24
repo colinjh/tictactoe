@@ -1,0 +1,42 @@
+
+
+header {
+  display: block;
+}
+body {
+  line-height: 1;
+  background-color: #fafafa;
+}
+.container {
+  width: 390px;
+  margin: 0 auto;
+  text-align: center;
+  color: #333;
+  }
+.game div{
+  background-color: #d9d9d9;
+  width: 120px;
+  height: 120px;
+  font-size: 60px;
+  line-height: 120px;
+  float: left;
+  border: 1px solid black;
+}
+.square:hover {
+  background-color: grey; 
+}
+
+h1 {
+	text-align: center;
+	margin: 0 auto;
+
+}
+h2{
+  text-align: ;
+  margin: 0 auto;
+
+}
+p{
+  text-align: center;
+  font-size: 60px;
+}

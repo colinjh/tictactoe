@@ -21,6 +21,7 @@ body {
   line-height: 120px;
   float: left;
   border: 1px solid black;
+
 }
 .square:hover {
   background-color: grey; 
@@ -38,5 +39,10 @@ h2{
 }
 p{
   text-align: center;
-  font-size: 60px;
+  font-size: 50px;
+}
+button {
+  margin-left: 32em;
+  width: 10em;
+  height: 3em;
 }

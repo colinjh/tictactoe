@@ -6,7 +6,7 @@
 var x = 'X';
 var o = 'O';
 var currentPlayer = 'X';
-var gameComplete = false;
+var gameWinner = false;
 
 var xMove = [];
 var oMove = [];
@@ -48,6 +48,7 @@ var tictactoe = {
 		$('p.scoreX').text('X Score:' +xScore);
 		gameWinner = true;
 		tictactoe.resetBoard();
+
 	},
 	oWinner: function() {
 		console.log('Winner O');
@@ -56,6 +57,7 @@ var tictactoe = {
 		$('p.scoreO').text('O Score:' +oScore);
 		gameWinner = true;
 		tictactoe.resetBoard();	
+	
 	},
 	validMove: function( $clickedElement ) {
 		return $clickedElement.text() === "";
@@ -63,13 +65,14 @@ var tictactoe = {
 	draw: function(){
 		if (moveCount === 9){
 			tictactoe.resetBoard;
+			draws++;
 			$('p.draw').text('Draws:' +draws);
 			
 		}
 	},
 
 	resetBoard: function() {
-		$('.square').on('click', function(){
+		// $('button').on('click', function(){
 			if ( gameWinner ) {
 				xMove = [];
 				oMove = [];
@@ -77,12 +80,11 @@ var tictactoe = {
 				gameWinner = false;
 				$('p.winner').text('');
 				$('.square').empty();
-				currentPlayer = 'X';
+			
 			}
-		});
+		// });
 		
 	},
-
 	gameWinner: function(){
 		var x1 = xMove.indexOf('1');
 		var x2 = xMove.indexOf('2'); 
@@ -135,6 +137,7 @@ var tictactoe = {
 	}else if ((o3 >= 0) && (o5 >= 0) && (o7 >= 0)){
 		tictactoe.oWinner();
 	}
+		return true;
 
 	}	
 
@@ -146,15 +149,21 @@ $(document).ready(function() {
 		if ( tictactoe.validMove( $(this) ) ) {
 			tictactoe.playerMove(this);
 			tictactoe.recordScore(this);
-			tictactoe.draw();
 			tictactoe.gameWinner();
+			var gameWon = tictactoe.gameWinner();
+			if ( !gameWon ) { tictactoe.draw() };
+			tictactoe.draw();
 			tictactoe.swapPlayer();
 		} else {
 			alert("Not Valid Move");
 		}
 
 	});
-		});
+
+	$('button').on('click', function(){
+		tictactoe.resetBoard();
+	});
+});
 
 
 	

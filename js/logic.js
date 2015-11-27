@@ -151,8 +151,8 @@ $(document).ready(function() {
 			tictactoe.recordScore(this);
 			tictactoe.gameWinner();
 			var gameWon = tictactoe.gameWinner();
-			if ( !gameWon ) { tictactoe.draw() };
-			tictactoe.draw();
+			if ( !gameWon ) { tictactoe.draw(); };
+			//tictactoe.draw();
 			tictactoe.swapPlayer();
 		} else {
 			alert("Not Valid Move");
